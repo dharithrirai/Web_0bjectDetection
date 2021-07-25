@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta charset="UTF-8">
+<style>
+  body{
+    background-image:url('background.jpg');
+  }
+.center {
+  margin: auto;
+  width: 40%;
+  margin-top: 150px;
+  border: 3px solid #73AD21;
+  padding: 10px;
+}
+.flip-card {
+  background-color: transparent;
+  width: 600px;
+  height: 400px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  position:center;
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color:#00688B;
+  color: white;
+  text-align:center;
+  transform: rotateY(180deg);
+}
+</style>
+<head>
+    <title>OBJECT DETECTOR</title>
+</head>
+<body style="background-color:#ADD8E6;">
+<div class="center">
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+       <img id="bg" src="{{ url_for('video_feed') }}" alt="obj" style="width:600px;height:400px" >
+    </div>
+    <div class="flip-card-back">
+        <h3>********************************************************</h3>
+      <h2 style="font-size:430%;">OBJECT DETECTOR </h2>
+        <h3>********************************************************</h3>
+    </div>
+  </div>
+</div>
+</div>
+</html>
